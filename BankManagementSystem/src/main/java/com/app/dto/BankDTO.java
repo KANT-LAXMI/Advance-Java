@@ -13,12 +13,11 @@ public class BankDTO {
 	@NotBlank(message = "name should not be blank")
 	private String firstName;
 	@NotBlank(message = "last name is compulsory")
-	@Size(min = 4,max = 10)
 	private String lastName;
 	@Email
+	@NotBlank(message = "cannot be blank")
 	private String email;
-	@Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[@#$%&]).{6,10})")
-	@JsonProperty(access =Access.WRITE_ONLY)
+	@Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[@#$%&]).{6,10})",message = "cannot be blank")
 	private String password;
 	private AccountType type;
 	public Long getId() {
